@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Funcionários da Empresa Agrícola</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('file:///C:/Users/Lucas%20Endo/Desktop/Pim%20Kawe/fundo.jpg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .register-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            text-align: center;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 98%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #d6d3d3;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #315232;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #2c4a2a;
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2>Cadastro - Funcionários</h2>
+        <form action="#" method="post" onsubmit="return validateRegisterForm()">
+            <label for="name">Nome</label>
+            <input type="text" id="name" name="name" placeholder="Nome" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" 
+                   placeholder="Email" 
+                   required 
+                   pattern="[a-zA-Z0-9._%+-]+@gmail\.com" 
+                   title="Por favor, insira um e-mail do tipo example@gmail.com">
+            
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" placeholder="Senha" required>
+            
+            <label for="confirm-password">Confirmar Senha</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirmar Senha" required>
+
+            <input type="submit" value="Cadastrar">
+        </form>
+        <div class="login-link">
+            <p>Já tem uma conta? <a href="#" onclick="redirectToLogin()">Faça login aqui</a></p>
+        </div>
+    </div>
+
+    <script>
+        function validateRegisterForm() {
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordInput = document.getElementById('confirm-password');
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+
+            if (!emailPattern.test(email)) {
+                alert('Por favor, insira um e-mail válido (ex: example@gmail.com).');
+                emailInput.focus();
+                return false;
+            }
+            if (password !== confirmPassword) {
+                alert('As senhas não coincidem. Por favor, verifique.');
+                confirmPasswordInput.focus();
+                return false;
+            }
+
+            // Exibe a msg de sucesso e te leva a pagina de login
+            alert('Cadastro realizado com sucesso!');
+            window.location.href = 'Login 1.html';
+            return false; // Impede o envio do formulário tradicional
+        }
+
+        // Redirecionamento ao login
+        function redirectToLogin() {
+            window.location.href = 'Login 1.html';
+        }
+    </script>
+</body>
+</html>
