@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Funcionários da Empresa Agrícola</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('file:///C:/Users/Lucas%20Endo/Desktop/Pim%20Kawe/fundo.jpg.jpg'); /* Caminho Absoluto de add imagem ao fundo de tela*/
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            text-align: center;
+        }
+        input[type="email"],
+        input[type="password"] {
+            width: 95%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #d6d3d3;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #315232;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #315232;
+        }
+        .register-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login - Funcionários</h2>
+        <form action="dashboard.html" method="post" onsubmit="return validateForm()">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" 
+                   placeholder="E-mail" 
+                   required 
+                   pattern="[a-zA-Z0-9._%+-]+@gmail\.com" 
+                   title="Por favor, insira um e-mail do tipo example@gmail.com">
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" placeholder="Senha" required>
+            <input type="submit" value="Entrar">
+        </form>
+        <div class="register-link">
+            <p>Não tem uma conta? <a href="Cadastro.html">Cadastre-se aqui</a></p>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            const emailInput = document.getElementById('email');
+            const email = emailInput.value.trim();
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+
+            if (!emailPattern.test(email)) {
+                alert('Por favor, insira um e-mail válido (ex: example@gmail.com).');
+                emailInput.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
