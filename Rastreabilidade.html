@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rastreabilidade - Fazenda GreenGarden</title>
+    <style>
+        /* Estilos */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #e3d7c1; /* Fundo suave */
+            line-height: 1.6; /* Aumenta a legibilidade */
+        }
+        header {
+            background-color: #4d684e;
+            color: #fcfcfc; /* Cor texto */
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
+        }
+        .nav-btn {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #4d684e;
+            color: #fff; /* Cor texto */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s; /* hover */
+            display: inline-block; /* Melhora o comportamento de layout */
+        }
+        .nav-btn:hover {
+            background-color: #6a8a64; /* Cor ao passar o mouse */
+            transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+        }
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 15px;
+            background-color: #b05f3c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .logout-btn:hover {
+            background-color: #d4765a; /* Cor ao passar o mouse */
+        }
+        .content {
+            padding: 40px 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+        }
+        .lot-info {
+            background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com transparência */
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #4d684e;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para cada bloco */
+            text-align: left;
+            transition: transform 0.2s, box-shadow 0.2s; /* Transição/animação */
+        }
+        .lot-info:hover {
+            transform: scale(1.02); /* Efeito de aumento ao passar o mouse */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra intensa ao passar o mouse */
+        }
+        .lot-info h3 {
+            color: #4d684e;
+            font-size: 1.5em; /* tamanho do título */
+            margin-bottom: 10px; /* Espaçamento inferior */
+        }
+        .lot-info p {
+            margin: 10px 0;
+        }
+        .lot-status {
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .healthy {
+            color: #2e8b57;
+            background-color: #d8f3dc;
+        }
+        .warning {
+            color: #b07600;
+            background-color: #fff3cd;
+        }
+        .critical {
+            color: #a11010;
+            background-color: #f8d7da;
+        }
+        @media (max-width: 600px) {
+            .nav-btn {
+                padding: 8px 15px; /* padding em telas pequenas */
+            }
+            .logout-btn {
+                padding: 6px 12px; /* padding em telas pequenas */
+            }
+            .content {
+                padding: 20px 10px; /* padding em telas pequenas */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Rastreabilidade dos Produtos - GreenGarden</h1>
+        <button class="logout-btn" onclick="window.location.href='Home.html'">Logout</button>
+    </header>
+
+    <div style="text-align: center; padding: 20px;">
+        <a href="Notificações.html" class="nav-btn">Notificações</a>
+        <a href="Dashboard.html" class="nav-btn">Dashboard</a>
+        <a href="Estoque.html" class="nav-btn">Estoque</a>
+    </div>
+
+    <div class="content">
+        <h2>Informações dos Lotes de Plantio</h2>
+        <p>Veja abaixo as informações de rastreabilidade dos lotes de produtos da GreenGarden, garantindo transparência e qualidade para os nossos clientes.</p>
+
+        <!-- info Lote 1 -->
+        <div class="lot-info">
+            <h3>Lote ID: 2023A01</h3>
+            <p><strong>Tipo:</strong> Frutas</p>
+            <p><strong>Data de Colheita:</strong> 12/11/2025</p>
+            <p><strong>Integridade e Saúde:</strong> <span class="lot-status healthy">Saudável</span></p>
+        </div>
+
+        <!-- info Lote 2 -->
+        <div class="lot-info">
+            <h3>Lote ID: 2023B07</h3>
+            <p><strong>Tipo:</strong> Vegetais</p>
+            <p><strong>Data de Colheita:</strong> 18/11/2025</p>
+            <p><strong>Integridade e Saúde:</strong> <span class="lot-status warning">Em Observação</span></p>
+        </div>
+
+        <!-- info Lote 3 -->
+        <div class="lot-info">
+            <h3>Lote ID: 2023C12</h3>
+            <p><strong>Tipo:</strong> Grãos</p>
+            <p><strong>Data de Colheita:</strong> 22/11/2025</p>
+            <p><strong>Integridade e Saúde:</strong> <span class="lot-status critical">Crítico</span></p>
+        </div>
+    </div>
+</body>
+</html>
