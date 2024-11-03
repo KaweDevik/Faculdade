@@ -5,106 +5,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fazenda Agrícola - Índice</title>
     <style>
-        /* Estilos */
+        /* Estilos básicos, porque o básico é sempre legal */
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            background-color: #d8ae7acf; /* Cor de fundo */
-        }
-        header {
-            background-color: #4d684e;
-            color: rgb(252, 252, 252);
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
-        }
-        .nav-btn {
-            margin: 10px;
-            padding: 10px 20px;
-            background-color: #4d684e;
-            color: rgb(252, 252, 252);
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s, transform 0.3s; /* transição ao hover */
-        }
-        .nav-btn:hover {
-            background-color: #6a8a64; /* Cor ao passar o mouse */
-            transform: scale(1.05); /* aumento ao passar o mouse */
+            font-family: 'Arial', sans-serif; /* A fonte que não sai de moda */
+            margin: 0; /* Vamos deixar tudo limpo e sem bagunça! */
+            padding: 0; /* Sem padding, só na hora do lanche! */
+            color: #333; /* Texto bem legível, igual receita de bolo */
+            background-color: #d8ae7acf; /* Um fundo suave que nem um abraço */
+            transition: background-color 0.3s; /* Mudança suave de fundo, como um caranguejo na areia */
         }
 
-        /* Estilo para a seção de introdução */
+        header {
+            background-color: #4d684e; /* Verde que lembra a natureza */
+            color: #fcfcfc; /* Branco como a neve (mas sem frio!) */
+            padding: 20px; /* Espaço pra respirar */
+            text-align: center; /* Tudo centralizado, porque a vida é melhor assim */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4); /* Sombra que dá aquele charme */
+            transition: box-shadow 0.3s; /* Sombra que se anima, como você dançando no casamento */
+        }
+
+        header:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6); /* Aumenta a sombra pra dar um efeito de "olha eu aqui!" */
+        }
+
+        .nav-btn {
+            margin: 10px; /* Espaço entre os botões, porque ninguém gosta de apertos! */
+            padding: 10px 20px; /* Botões que não fazem você se sentir na fila do pão */
+            background-color: #4d684e; /* Verde que faz bem pro coração */
+            color: #fcfcfc; /* Texto branquíssimo, como algodão doce */
+            border: none; /* Sem borda, só amor! */
+            cursor: pointer; /* Clicável como um botão de "só mais um episódio" */
+            border-radius: 5px; /* Bordas arredondadas, porque a vida é cheia de curvas */
+            text-decoration: none; /* Sem underline, aqui o texto tá relaxado */
+            font-weight: bold; /* Negrito, pra dar destaque */
+            transition: background-color 0.3s, transform 0.3s; /* Transição suave, como um gato pulando na sua perna */
+        }
+
+        .nav-btn:hover {
+            background-color: #6a8a64; /* Verde de passarinho feliz ao passar o mouse */
+            transform: translateY(-3px); /* Levanta o botão pra um "oi, tudo bem?" */
+        }
+
+        /* Seção de introdução */
         .intro {
-            background-image: url("F:/Pim Kewevietnam-3732375_1280.jpg");
-            background-size: cover;
-            background-position: center;
-            padding: 60px;
-            text-align: center;
-            color: rgb(20, 18, 18);
-            border-radius: 10px; /* Bordas arredondadas */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
+            background-image: url("F:/Pim Kewevietnam-3732375_1280.jpg"); /* Imagem que dá vontade de comer a tela */
+            background-size: cover; /* Cobre todo o espaço, como uma coberta quentinha */
+            background-position: center; /* Centraliza, porque quem gosta de bagunça? */
+            padding: 60px; /* Espaço pra gente relaxar e olhar a beleza */
+            text-align: center; /* Centraliza o texto, porque aqui todo mundo é VIP */
+            color: #201212; /* Cor do texto que combina com qualquer refeição */
+            border-radius: 10px; /* Bordas arredondadas, como nossa vida deve ser */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra que dá aquele clima */
+            animation: fadeIn 1s; /* Animação de entrada, pra você não perder o ritmo */
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; } /* Começa invisível, como o café na sua xícara antes de tomar */
+            to { opacity: 1; } /* Fica visível, como você depois de um bom lanche */
+        }
+
         .intro h2 {
-            font-size: 2.5em;
-            margin-bottom: 10px; /* Espaçamento abaixo do título */
+            font-size: 2.5em; /* Tamanho do título que grita "olha eu aqui!" */
+            margin-bottom: 10px; /* Espaço embaixo, porque não queremos tudo grudado */
         }
+
         .intro p {
-            font-size: 1.2em;
-            max-width: 800px; /* Limitar a largura */
-            margin: auto; /* Centralizar o parágrafo */
+            font-size: 1.2em; /* Tamanho do texto que não cansa os olhos */
+            max-width: 800px; /* Largura máxima, como os limites da dieta... */
+            margin: auto; /* Centraliza o parágrafo, porque a vida é melhor assim */
         }
 
         /* Seção de produtos */
         .products {
-            padding: 40px 20px;
-            text-align: center;
+            padding: 40px 20px; /* Espaçamento na seção de produtos, como um carinho na tela */
+            text-align: center; /* Centraliza os itens, porque tudo aqui é amor */
         }
+
         .products h3 {
-            font-size: 2em;
-            margin-bottom: 20px;
-            color: #4d684e; /* título da seção */
+            font-size: 2em; /* Tamanho do título que brilha mais que estrela cadente */
+            margin-bottom: 20px; /* Espaçamento embaixo do título, porque títulos também precisam de espaço */
+            color: #4d684e; /* Cor do título que combina com a natureza */
+            transition: transform 0.3s; /* Transição suave, como um gato se esticando */
         }
+
+        .products h3:hover {
+            transform: scale(1.05); /* Aumenta o título, porque ele merece ser notado! */
+        }
+
         .product-item {
-            display: inline-block;
-            width: 200px; /* Tamanho fixo */
-            height: 200px; /* Tamanho fixo */
-            margin: 20px;
-            text-align: center;
-            overflow: hidden;
-            border-radius: 10px; /* Bordas arredondadas */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
-            transition: transform 0.2s, box-shadow 0.2s; /* Transição para animação */
-            background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com leve transparência */
-            padding: 10px; /* Espaçamento interno */
+            display: inline-block; /* Itens lado a lado, como amigos em uma mesa de bar */
+            width: 200px; /* Largura fixa, pra não deixar ninguém triste */
+            height: 200px; /* Altura fixa, pra não desvirtuar a beleza */
+            margin: 20px; /* Espaçamento entre os itens, porque cada um merece seu espaço */
+            text-align: center; /* Centraliza o texto dentro do item, porque aqui não tem confusão */
+            overflow: hidden; /* Esconde o que transborda, como quem não quer ver a conta do restaurante */
+            border-radius: 10px; /* Bordas arredondadas, porque a vida é cheia de curvas */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra pra dar aquele destaque */
+            transition: transform 0.3s, box-shadow 0.3s; /* Transição suave, como um deslizar de mãos na mesa */
+            background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com leve transparência, como uma xícara de chá */
+            padding: 10px; /* Espaçamento interno, pra tudo ficar confortável */
         }
+
         .product-item:hover {
-            transform: scale(1.05); /* aumento ao passar o mouse */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
+            transform: translateY(-5px); /* Levanta o item */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Aumenta a sombra pra dar um efeito de "me olha aqui" */
         }
+
         .product-item img {
-            width: 90%;
-            height: auto; /* Ajustar automaticamente a altura */
-            object-fit: cover; /* Imagens ajustam ao container */
-            border-radius: 10px; /* Bordas arredondadas para a imagem */
-            margin-bottom: 10px; /* Espaçamento abaixo da imagem */
+            width: 90%; /* Largura da imagem que não vai estourar o limite */
+            height: auto; /* Altura automática, porque a beleza não precisa de regras */
+            object-fit: cover; /* Ajusta a imagem, porque aqui ninguém fica de fora */
+            border-radius: 10px; /* Bordas arredondadas pra imagem */
+            margin-bottom: 10px; /* Espaçamento embaixo da imagem, porque a beleza também precisa de espaço */
+            transition: transform 0.3s; /* Transição suave pra imagem, como um sussurro */
         }
+
+        .product-item img:hover {
+            transform: scale(1.1); /* Aumenta a imagem, ela merece ser notada! */
+        }
+
         .product-item p {
-            font-weight: bold;
-            margin-top: 5px; /* espaçamento acima do texto */
+            font-weight: bold; /* Texto em negrito, pra não deixar dúvida sobre o que é */
+            margin-top: 5px; /* Espaçamento acima do texto, porque até as palavras precisam de um descanso */
         }
     </style>
 </head>
 <body>
-    <!-- Cabeçalho, nome do site -->
+    <!-- Cabeçalho -->
     <header>
         <h1>Bem-vindo à Fazenda GreenGarden</h1>
     </header>
 
-    <!-- Introdução, imagem de fundo -->
+    <!-- Introdução -->
     <section class="intro">
         <h2>Alimentos Saudáveis e Sustentáveis</h2>
         <p>Produzimos alimentos com dedicação e sustentabilidade para garantir qualidade do campo à sua mesa.</p>
@@ -119,23 +151,23 @@
         <a href="Sobre.html" class="nav-btn">Sobre a Fazenda</a>
     </div>
 
-    <!-- produtos com ícones representando produto -->
+    <!-- Seção de produtos -->
     <section class="products">
         <h3>Nossos Produtos</h3>
         <div class="product-item">
-            <a href="Loja.html"> <!-- Link para página da loja -->
+            <a href="Loja.html"> <!-- Link pra loja, porque comprar é viver! -->
                 <img src="F:\Pim Kewe\images.jpeg" alt="Frutas">
                 <p>Frutas</p>
             </a>
         </div>
         <div class="product-item">
-            <a href="Loja.html"> <!-- Link para página da loja -->
+            <a href="Loja.html"> <!-- Link pra loja, vegetais são amigos! -->
                 <img src="F:\Pim Kewe\fundo-de-vegetais-vegetais-alimentos-saudaveis-e-estilo-de-vida_250484-1580.avif" alt="Vegetais">
                 <p>Vegetais</p>
             </a>
         </div>
         <div class="product-item">
-            <a href="Loja.html"> <!-- Link para página da loja -->
+            <a href="Loja.html"> <!-- Link pra loja, grãos são o futuro! -->
                 <img src="F:\Pim Kewe\istockphoto-637856490-612x612.jpg" alt="Grãos">
                 <p>Grãos</p>
             </a>
@@ -143,3 +175,4 @@
     </section>
 </body>
 </html>
+
