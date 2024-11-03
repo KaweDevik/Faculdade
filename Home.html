@@ -5,19 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fazenda Agrícola - Índice</title>
     <style>
-        /* Estilos básicos */
+        /* Estilos */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             color: #333;
-            background-color: #d8ae7acf; /* Cor de fundo suave */
+            background-color: #d8ae7acf; /* Cor de fundo */
         }
         header {
             background-color: #4d684e;
             color: rgb(252, 252, 252);
             padding: 20px;
             text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
         }
         .nav-btn {
             margin: 10px;
@@ -29,22 +30,32 @@
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s; /* transição ao hover */
+        }
+        .nav-btn:hover {
+            background-color: #6a8a64; /* Cor ao passar o mouse */
+            transform: scale(1.05); /* aumento ao passar o mouse */
         }
 
         /* Estilo para a seção de introdução */
         .intro {
-            background-image: url('C:/Users/Lucas Endo/Desktop/Pim Kawe/vietnam-3732375_1280.jpg');
+            background-image: url("F:/Pim Kewevietnam-3732375_1280.jpg");
             background-size: cover;
             background-position: center;
             padding: 60px;
             text-align: center;
             color: rgb(20, 18, 18);
+            border-radius: 10px; /* Bordas arredondadas */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
         }
         .intro h2 {
             font-size: 2.5em;
+            margin-bottom: 10px; /* Espaçamento abaixo do título */
         }
         .intro p {
             font-size: 1.2em;
+            max-width: 800px; /* Limitar a largura */
+            margin: auto; /* Centralizar o parágrafo */
         }
 
         /* Seção de produtos */
@@ -55,6 +66,7 @@
         .products h3 {
             font-size: 2em;
             margin-bottom: 20px;
+            color: #4d684e; /* título da seção */
         }
         .product-item {
             display: inline-block;
@@ -65,26 +77,34 @@
             overflow: hidden;
             border-radius: 10px; /* Bordas arredondadas */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+            transition: transform 0.2s, box-shadow 0.2s; /* Transição para animação */
+            background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com leve transparência */
+            padding: 10px; /* Espaçamento interno */
+        }
+        .product-item:hover {
+            transform: scale(1.05); /* aumento ao passar o mouse */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
         }
         .product-item img {
             width: 90%;
-            height: 80%;
-            object-fit: cover; /* imagens se ajustam ao container */
-            border-radius: 10px;
+            height: auto; /* Ajustar automaticamente a altura */
+            object-fit: cover; /* Imagens ajustam ao container */
+            border-radius: 10px; /* Bordas arredondadas para a imagem */
+            margin-bottom: 10px; /* Espaçamento abaixo da imagem */
         }
         .product-item p {
             font-weight: bold;
-            margin-top: 10px;
+            margin-top: 5px; /* espaçamento acima do texto */
         }
     </style>
 </head>
 <body>
-    <!-- Cabeçalho com nome do site -->
+    <!-- Cabeçalho, nome do site -->
     <header>
         <h1>Bem-vindo à Fazenda GreenGarden</h1>
     </header>
 
-    <!-- Introdução com imagem de fundo -->
+    <!-- Introdução, imagem de fundo -->
     <section class="intro">
         <h2>Alimentos Saudáveis e Sustentáveis</h2>
         <p>Produzimos alimentos com dedicação e sustentabilidade para garantir qualidade do campo à sua mesa.</p>
@@ -96,24 +116,29 @@
         <a href="Login 1.html" class="nav-btn">Login Funcionários</a>
         <a href="Cadastro Cliente.html" class="nav-btn">Cadastro Cliente</a>
         <a href="Login Cliente.html" class="nav-btn">Login Cliente</a>
-        <a href="Loja.html" class="nav-btn">Loja</a>
         <a href="Sobre.html" class="nav-btn">Sobre a Fazenda</a>
     </div>
 
-    <!-- Seção de produtos com ícones representando cada produto -->
+    <!-- produtos com ícones representando produto -->
     <section class="products">
         <h3>Nossos Produtos</h3>
         <div class="product-item">
-            <img src="C:/Users/Lucas Endo/Desktop/Pim Kawe/images.jpeg" alt="Frutas">
-            <p>Frutas</p>
+            <a href="Loja.html"> <!-- Link para página da loja -->
+                <img src="F:\Pim Kewe\images.jpeg" alt="Frutas">
+                <p>Frutas</p>
+            </a>
         </div>
         <div class="product-item">
-            <img src="C:/Users/Lucas Endo/Desktop/Pim Kawe/fazenda-com-colheitas-verdes-exuberantes-e-lindo-ceu-azul-claro_508977-518.avif" alt="Vegetais">
-            <p>Vegetais</p>
+            <a href="Loja.html"> <!-- Link para página da loja -->
+                <img src="F:\Pim Kewe\fundo-de-vegetais-vegetais-alimentos-saudaveis-e-estilo-de-vida_250484-1580.avif" alt="Vegetais">
+                <p>Vegetais</p>
+            </a>
         </div>
         <div class="product-item">
-            <img src="C:/Users/Lucas Endo/Desktop/Pim Kawe/istockphoto-637856490-612x612.jpg" alt="Grãos">
-            <p>Grãos</p>
+            <a href="Loja.html"> <!-- Link para página da loja -->
+                <img src="F:\Pim Kewe\istockphoto-637856490-612x612.jpg" alt="Grãos">
+                <p>Grãos</p>
+            </a>
         </div>
     </section>
 </body>
