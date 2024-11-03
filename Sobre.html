@@ -5,87 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre a GreenGarden</title>
     <style>
-        /* Estilos */
+        /* Estilos básicos */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            height: 150vh; /* Define altura total da tela */
-            background-image: url('file:///C:/Users/Lucas Endo/Desktop/Pim Kawe/foto-incrivel-de-uma-fazenda-com-vacas-ao-por-do-sol_181624-44690.avif'); /* Caminho Absoluto da imagem de fundo */
-            background-size: cover; /* A imagem cobre todo o fundo */
-            background-position: center; /* Centraliza a imagem */
-            background-repeat: no-repeat; /* Não repete a imagem */
+            height: 150vh; 
+            background: linear-gradient(to bottom, #af8f53d3, #c49f5ae0); /* Gradiente suave */
             display: flex;
-            flex-direction: column; /* Alinha os itens */
-            align-items: center; /* Centraliza os itens */
+            flex-direction: column; 
+            align-items: center; 
         }
         header {
-            background-color: rgba(77, 104, 78, 0.9); /* Fundo com transparência */
+            background-color: rgba(77, 104, 78, 0.9); 
             color: #fcfcfc;
             padding: 20px;
             text-align: center;
-            width: 100%; /* ocupar toda a largura */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
+            width: 100%; 
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        nav {
+            text-align: center;
+            margin: 20px 0;
         }
         .nav-btn {
             margin: 10px;
             padding: 10px 20px;
-            background-color: rgba(77, 104, 78, 0.8); /* Fundo com transparência */
+            background-color: rgba(77, 104, 78, 0.8); 
             color: #fcfcfc;
             border: none;
             cursor: pointer;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
-            transition: background-color 0.3s; /* Transição suave ao passar o mouse */
-            display: inline-block; /* comportamento de layout */
+            transition: background-color 0.3s, transform 0.2s; /* Transição suave */
+            display: inline-block; 
         }
         .nav-btn:hover {
-            background-color: #6a8a64; /* Cor ao passar o mouse */
+            background-color: #6a8a64; 
+            transform: scale(1.05); /* Efeito de aumento */
         }
         .content {
             padding: 20px;
             text-align: center;
-            width: 90%; /* Largura responsiva */
-            max-width: 800px; /* Largura máxima */
-            margin-top: 20px; /* Espaço acima */
-            z-index: 1; /* Certifica que o conteúdo esteja acima da imagem */
-            background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com leve transparência */
-            border-radius: 10px; /* Bordas arredondadas */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para o conteúdo */
+            width: 90%; 
+            max-width: 800px; 
+            margin-top: 20px; 
+            z-index: 1; 
+            background-color: rgba(255, 255, 255, 0.9); 
+            border-radius: 10px; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
         }
         .fact {
             margin: 20px 0;
             padding: 15px;
             border: 1px solid #4d684e;
             border-radius: 10px;
-            background-color: rgba(255, 255, 255, 0.9); /* Fundo branco */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para as caixas */
-            transition: transform 0.2s, box-shadow 0.2s; /* Transição para animação */
+            background-color: rgba(255, 255, 255, 0.9); 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+            transition: transform 0.2s, box-shadow 0.2s; 
         }
         .fact:hover {
-            transform: scale(1.02); /* Efeito de aumento ao passar o mouse */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra mais intensa ao passar o mouse */
+            transform: scale(1.02); 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
         }
         .fact img {
             width: 100%;
             max-width: 300px;
             border-radius: 10px;
-            margin-bottom: 10px; /* Espaçamento da imagem */
+            margin-bottom: 10px; 
         }
         h2 {
-            color: #4d684e; /* Cor do título */
-            margin-top: 20px; /* Espaço acima do título */
+            color: #4d684e; 
+            margin-top: 20px; 
         }
         @media (max-width: 600px) {
             .nav-btn {
-                padding: 8px 15px; /* padding em telas pequenas */
+                padding: 8px 15px; 
             }
             .content {
-                padding: 10px; /* padding em telas pequenas */
+                padding: 10px; 
             }
             .fact {
-                margin: 10px 0; /* margem em telas pequenas */
+                margin: 10px 0; 
             }
         }
     </style>
@@ -95,29 +97,41 @@
         <h1>Sobre a GreenGarden</h1>
     </header>
 
-    <div style="text-align: center; padding: 20px;">
+    <nav>
         <a href="Cadastro.html" class="nav-btn">Cadastro Funcionários</a>
         <a href="Login 1.html" class="nav-btn">Login Funcionários</a>
         <a href="Cadastro Cliente.html" class="nav-btn">Cadastro Cliente</a>
         <a href="Login Cliente.html" class="nav-btn">Login Cliente</a>
         <a href="Home.html" class="nav-btn">Home</a>
-    </div>
+    </nav>
 
     <div class="content">
         <h2>Fatos Interessantes sobre Nossa Fazenda</h2>
 
         <div class="fact">
-            <img src="C:\Users\Lucas Endo\Desktop\Pim Kawe\luz-da-manha-de-verao-sobre-um-campo-gramado-com-vacas-e-fazenda-vista-de-uma-mesa-de-madeira-vazia_1218087-509.avif" alt="Fazenda em um dia ensolarado">
+            <img src="F:\Pim Kewe\foto-incrivel-de-uma-fazenda-com-vacas-ao-por-do-sol_181624-44690.avif"alt="Fazenda em um dia ensolarado">
             <h3>Uma História de Sustentabilidade</h3>
             <p>Desde a nossa fundação, temos um compromisso com práticas agrícolas sustentáveis, preservando o meio ambiente e respeitando a biodiversidade.</p>
         </div>
 
         <div class="fact">
-            <img src="C:\Users\Lucas Endo\Desktop\Pim Kawe\images (1).jpeg" alt="Colheita de vegetais">
+            <img src="F:\Pim Kewe\images (1).jpeg" alt="Colheita de vegetais">
             <h3>Produção Orgânica</h3>
             <p>Todos os nossos produtos são cultivados sem o uso de pesticidas ou fertilizantes químicos, garantindo alimentos saudáveis para nossos clientes.</p>
         </div>
     </div>
+
+    <script>
+        // Efeito de scroll suave para links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
 
