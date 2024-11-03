@@ -5,96 +5,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Funcionários da Fazenda GreenGarden</title>
     <style>
-        /* Reset básico e fonte */
+        /* Reset básico e configuração da fonte */
         body, h1, h2, p {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            color: #333; /* Texto mais escuro para legibilidade */
+            font-family: Arial, sans-serif; /* Fonte padrão, bem de boa */
+            color: #333; /* Texto mais escuro pra facilitar a leitura */
         }
-        /* Configurações de layout */
+
+        /* Configurações de layout do body */
         body {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #e3d7c1;
-            min-height: 100vh;
+            flex-direction: column; /* Faz tudo ficar em coluna */
+            align-items: center; /* Centraliza os itens */
+            background-color: #e3d7c1; /* Fundo com cor suave, bem relaxante */
+            min-height: 100vh; /* Faz a página ocupar toda a altura da tela */
         }
+
         header {
-            background-color: #4d684e;
-            color: #fff;
-            padding: 20px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(244, 244, 244, 0.3);
-            position: relative;
+            background-color: #4d684e; /* Cabeçalho verde, pra dar aquela vibe de natureza */
+            color: #fff; /* Texto branco pra destacar */
+            padding: 20px; /* Espaçamento interno */
+            width: 100%; /* Largura total */
+            text-align: center; /* Centraliza o texto */
+            box-shadow: 0 2px 10px rgba(244, 244, 244, 0.3); /* Sombrinha legal no cabeçalho */
+            position: relative; /* Posiciona o cabeçalho relativo */
         }
+
         .logout-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            padding: 10px 15px;
-            background-color: #b05f3c;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s;
+            position: absolute; /* Fixa o botão no canto */
+            top: 20px; 
+            right: 20px; 
+            padding: 10px 15px; /* Espaçamento interno do botão */
+            background-color: #b05f3c; /* Cor de fundo do botão */
+            color: #fff; /* Texto do botão em branco */
+            border: none; /* Tira a borda padrão */
+            border-radius: 5px; /* Bordinhas arredondadas, estilo clean */
+            cursor: pointer; /* Muda o cursor pra indicar que é clicável */
+            font-weight: bold; /* Deixa o texto em negrito */
+            transition: background-color 0.3s ease, transform 0.2s; /* Transição suave nas cores e escala */
         }
+
         .logout-btn:hover {
-            background-color: #a04932;
+            background-color: #a04932; /* Muda a cor ao passar o mouse */
             transform: scale(1.05); /* Aumenta o botão levemente ao passar o mouse */
         }
+
         .dashboard-container {
-            padding: 20px;
-            width: 90%;
-            max-width: 1000px;
-            margin: 20px auto;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-            text-align: center;
+            padding: 20px; /* Espaçamento interno */
+            width: 90%; /* Largura responsiva */
+            max-width: 1000px; /* Largura máxima */
+            margin: 20px auto; /* Margem automática pra centralizar */
+            background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com leve transparência */
+            border-radius: 10px; /* Bordinhas arredondadas */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Sombrinha na caixa */
+            text-align: center; /* Centraliza o texto */
+            animation: fadeIn 0.5s ease; /* Efeito de aparecimento suave */
         }
+
+        /* Animação de fade-in */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         .menu, .charts {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 20px;
+            display: flex; /* Flexbox pra arranjar os itens */
+            justify-content: space-around; /* Espaço entre os itens */
+            flex-wrap: wrap; /* Permite que os itens se movam pra outra linha se necessário */
+            gap: 20px; /* Espaço entre os itens */
         }
+
         .menu-item, .chart-card {
-            background-color: #4d684e;
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            font-weight: bold;
-            text-decoration: none;
-            text-align: center;
-            transition: background-color 0.3s ease, transform 0.2s; /* Adicionada transformação */
-            cursor: pointer;
-            min-width: 120px; /* Largura mínima para itens do menu */
+            background-color: #4d684e; /* Fundo verde pros itens do menu e cartões */
+            color: white; /* Texto branco */
+            padding: 15px; /* Espaçamento interno */
+            border-radius: 8px; /* Bordinhas arredondadas, sempre chique */
+            font-weight: bold; /* Texto em negrito pra destacar */
+            text-decoration: none; /* Sem underline */
+            text-align: center; /* Centraliza o texto */
+            transition: background-color 0.3s ease, transform 0.2s; /* Transição suave nas cores e escala */
+            cursor: pointer; /* Indica que é clicável */
+            min-width: 120px; /* Largura mínima pros itens do menu */
         }
+
         .menu-item:hover {
-            background-color: #6a8a64;
+            background-color: #6a8a64; /* Muda a cor ao passar o mouse */
             transform: scale(1.05); /* Aumenta o item levemente ao passar o mouse */
         }
+
         .chart-card {
-            width: 100%;
-            max-width: 300px;
-            background-color: #fff;
-            color: #333;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s; /* Transição para efeito de escala */
+            width: 100%; /* Largura total do cartão */
+            max-width: 300px; /* Largura máxima do cartão */
+            background-color: #fff; /* Fundo branco pros cartões */
+            color: #333; /* Texto escuro */
+            padding: 10px; /* Espaçamento interno */
+            border-radius: 8px; /* Bordinhas arredondadas */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Sombrinha suave */
+            transition: transform 0.2s; /* Transição pra efeito de escala */
         }
+
         .chart-card:hover {
-            transform: scale(1.03); /* Aumenta o card levemente ao passar o mouse */
+            transform: scale(1.03); /* Aumenta o cartão levemente ao passar o mouse */
         }
+
         .chart-title {
-            font-size: 1.2em;
-            color: #4d684e;
-            margin-bottom: 10px;
+            font-size: 1.2em; /* Tamanho do título do gráfico */
+            color: #4d684e; /* Cor verde pros títulos */
+            margin-bottom: 10px; /* Espaço embaixo do título */
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -118,15 +136,15 @@
         <div class="charts">
             <div class="chart-card">
                 <p class="chart-title">Status do Lote - Pragas</p>
-                <canvas id="pragasChart"></canvas>
+                <canvas id="pragasChart"></canvas> <!-- Gráfico de pragas -->
             </div>
             <div class="chart-card">
                 <p class="chart-title">Alertas Ambientais</p>
-                <canvas id="ambientalChart"></canvas>
+                <canvas id="ambientalChart"></canvas> <!-- Gráfico de alertas ambientais -->
             </div>
             <div class="chart-card">
                 <p class="chart-title">Índice de Crescimento</p>
-                <canvas id="crescimentoChart"></canvas>
+                <canvas id="crescimentoChart"></canvas> <!-- Gráfico de crescimento -->
             </div>
         </div>
     </div>
@@ -134,63 +152,67 @@
     <script>
         // Dados do gráfico de status de pragas
         const pragasData = {
-            labels: ['Lote 1', 'Lote 2', 'Lote 3'],
+            labels: ['Lote 1', 'Lote 2', 'Lote 3'], // Rótulos dos lotes
             datasets: [{
                 label: 'Status de Pragas',
-                data: [3, 7, 2], // Exemplo de dados
-                backgroundColor: ['#d8f3dc', '#fff3cd', '#f8d7da'],
-                borderColor: '#4d684e',
-                borderWidth: 1
+                data: [3, 7, 2], // Exemplo de dados (número de pragas em cada lote)
+                backgroundColor: ['#d8f3dc', '#fff3cd', '#f8d7da'], // Cores dos lotes
+                borderColor: '#4d684e', // Cor da borda
+                borderWidth: 1 // Largura da borda
             }]
         };
+
         const pragasConfig = {
-            type: 'bar',
+            type: 'bar', // Tipo de gráfico: barra
             data: pragasData,
             options: {
-                responsive: true,
-                plugins: { legend: { display: false } }
+                responsive: true, // Gráfico responsivo
+                plugins: { legend: { display: false } } // Não mostra legenda
             }
         };
-        new Chart(document.getElementById('pragasChart'), pragasConfig);
+        new Chart(document.getElementById('pragasChart'), pragasConfig); // Cria o gráfico
 
         // Dados do gráfico de alertas ambientais
         const ambientalData = {
-            labels: ['Alta Temperatura', 'Baixa Umidade', 'Chuva Excessiva'],
+            labels: ['Alta Temperatura', 'Baixa Umidade', 'Chuva Excessiva'], // Rótulos dos alertas
             datasets: [{
                 label: 'Alertas Ambientais',
-                data: [5, 3, 2],
-                backgroundColor: ['#ffcccb', '#ffdd99', '#ccffcc'],
-                borderColor: '#4d684e',
-                borderWidth: 1
+                data: [5, 3, 2], // Exemplo de dados (número de alertas)
+                backgroundColor: ['#ffcccb', '#ffdd99', '#ccffcc'], // Cores dos alertas
+                borderColor: '#4d684e', // Cor da borda
+                borderWidth: 1 // Largura da borda
             }]
         };
+
         const ambientalConfig = {
-            type: 'pie',
+            type: 'pie', // Tipo de gráfico: pizza
             data: ambientalData,
-            options: { responsive: true }
+            options: { responsive: true } // Gráfico responsivo
         };
-        new Chart(document.getElementById('ambientalChart'), ambientalConfig);
+        new Chart(document.getElementById('ambientalChart'), ambientalConfig); // Cria o gráfico
 
         // Dados do gráfico de índice de crescimento
         const crescimentoData = {
-            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'],
+            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'], // Meses do crescimento
             datasets: [{
-                label: 'Crescimento (%)',
-                data: [10, 15, 25, 35, 50],
-                borderColor: '#4d684e',
-                backgroundColor: 'rgba(77, 104, 78, 0.4)',
-                fill: true
+                label: 'Crescimento (%)', // Rótulo do gráfico
+                data: [10, 15, 25, 35, 50], // Exemplo de dados (crescimento em porcentagem)
+                borderColor: '#4d684e', // Cor da linha
+                backgroundColor: 'rgba(77, 104, 78, 0.4)', // Cor de fundo da linha
+                fill: true // Preencher área sob a linha
             }]
         };
+
         const crescimentoConfig = {
-            type: 'line',
+            type: 'line', // Tipo de gráfico: linha
             data: crescimentoData,
             options: {
-                responsive: true,
-                plugins: { legend: { position: 'top' } }
+                responsive: true, // Gráfico responsivo
+                plugins: { legend: { position: 'top' } } // Posição da legenda
             }
         };
-        new Chart(document.getElementById('crescimentoChart'), crescimentoConfig);
+        new Chart(document.getElementById('crescimentoChart'), crescimentoConfig); // Cria o gráfico
     </script>
 </body>
 </html>
+
