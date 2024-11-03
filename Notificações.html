@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificações - Fazenda GreenGarden</title>
+    <style>
+        /* Estilos básicos */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #e3d7c1; /* Fundo suave */
+            line-height: 1.6; /* Aumenta a legibilidade */
+        }
+        header {
+            background-color: #4d684e;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
+        }
+        .nav-btn {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #4d684e;
+            color: #fff; /* Cor do texto */
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+            display: inline-block; /* Melhora o comportamento de layout */
+        }
+        .nav-btn:hover {
+            background-color: #6a8a64; /* Cor ao passar o mouse */
+            transform: scale(1.05); /* Aumenta ligeiramente ao passar o mouse */
+        }
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 15px;
+            background-color: #b05f3c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .logout-btn:hover {
+            background-color: #d4765a; /* Cor ao passar o mouse */
+        }
+        .content {
+            padding: 40px 20px;
+            text-align: center;
+            max-width: 900px;
+            margin: auto;
+        }
+        .notification {
+            background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com leve transparência */
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #4d684e;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para cada bloco */
+            text-align: left;
+            transition: transform 0.2s, box-shadow 0.2s; /* Transição para animação */
+        }
+        .notification:hover {
+            transform: scale(1.02); /* Efeito de aumento ao passar o mouse */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra mais intensa ao passar o mouse */
+        }
+        .notification h3 {
+            color: #4d684e;
+            font-size: 1.5em; /* Aumenta o tamanho do título */
+            margin-bottom: 10px; /* Espaçamento inferior */
+        }
+        .notification p {
+            margin: 8px 0;
+        }
+        .status {
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .healthy {
+            background-color: #d8f3dc;
+            color: #2e8b57;
+        }
+        .alert {
+            background-color: #fff3cd;
+            color: #b07600;
+        }
+        .critical {
+            background-color: #f8d7da;
+            color: #a11010;
+        }
+        @media (max-width: 600px) {
+            .nav-btn {
+                padding: 8px 15px; /* Menor padding em telas pequenas */
+            }
+            .logout-btn {
+                padding: 6px 12px; /* Menor padding em telas pequenas */
+            }
+            .content {
+                padding: 20px 10px; /* Menor padding em telas pequenas */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Notificações de Lotes - GreenGarden</h1>
+        <button class="logout-btn" onclick="window.location.href='Home.html'">Logout</button>
+    </header>
+
+    <div style="text-align: center; padding: 20px;">
+        <a href="Rastreabilidade.html" class="nav-btn">Rastreabilidade</a>
+        <a href="Dashboard.html" class="nav-btn">Dashboard</a>
+        <a href="Estoque.html" class="nav-btn">Estoque</a>
+    </div>
+
+    <div class="content">
+        <h2>Notificações Recentes dos Lotes</h2>
+        <p>Acompanhe as atualizações sobre a integridade, alertas de pragas, condições ambientais e o controle de estoque dos lotes.</p>
+
+        <!-- Notificação de Lote 1 -->
+        <div class="notification">
+            <h3>Lote ID: 2023A01 - Frutas</h3>
+            <p><span class="status healthy">Status: Saudável</span></p>
+            <p><strong>Último Controle de Pragas:</strong> Realizado em 10/10/2025</p>
+            <p><strong>Alertas Ambientais:</strong> Nenhum alerta recente</p>
+            <p><strong>Controle de Estoque:</strong> 150 kg colhidos em 12/10/2025</p>
+        </div>
+
+        <!-- Notificação de Lote 2 -->
+        <div class="notification">
+            <h3>Lote ID: 2023B07 - Vegetais</h3>
+            <p><span class="status critical">Status: Crítico</span></p>
+            <p><strong>Último Controle de Pragas:</strong> Alto nível de infestação de pragas, controle realizado em 07/10/2025</p>
+            <p><strong>Alertas Ambientais:</strong> Alta temperatura e baixa umidade, monitoramento intensificado</p>
+            <p><strong>Controle de Estoque:</strong> 80 kg colhidos em 15/10/2025</p>
+        </div>
+
+        <!-- Notificação de Lote 3 -->
+        <div class="notification">
+            <h3>Lote ID: 2023C12 - Grãos</h3>
+            <p><span class="status alert">Status: Em Observação</span></p>
+            <p><strong>Último Controle de Pragas:</strong> Realizado em 05/10/2025</p>
+            <p><strong>Alertas Ambientais:</strong> Baixa umidade no solo, irrigação extra realizada</p>
+            <p><strong>Controle de Estoque:</strong> 200 kg colhidos em 18/10/2025</p>
+        </div>
+    </div>
+</body>
+</html>
