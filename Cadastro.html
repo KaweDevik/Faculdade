@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             height: 100vh;
-            background-image: url('file:///C:/Users/Lucas%20Endo/Desktop/Pim%20Kawe/fundo.jpg.jpg');
+            background-image: url("F:/Pim Kewe/fundo.jpg.jpg");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -19,13 +19,21 @@
             align-items: center;
         }
         .register-container {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com transparência */
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border-radius: 10px; /* Bordas arredondadas */
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3); /* Sombra mais suave */
+            width: 90%;
+            max-width: 400px; /* Limita a largura máxima */
         }
         h2 {
             text-align: center;
+            color: #315232; /* Cor do título */
+            margin-bottom: 20px; /* Espaço abaixo do título */
+        }
+        label {
+            font-weight: bold;
+            color: #333; /* Cor do texto dos rótulos */
         }
         input[type="text"],
         input[type="email"],
@@ -34,23 +42,34 @@
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #d6d3d3;
-            border-radius: 4px;
+            border-radius: 5px; /* Bordas arredondadas nos inputs */
+            font-size: 1em; /* Tamanho da fonte */
         }
         input[type="submit"] {
             background-color: #315232;
             color: white;
             padding: 10px;
             border: none;
-            border-radius: 4px;
+            border-radius: 5px; /* Bordas arredondadas */
             cursor: pointer;
             width: 100%;
+            transition: background-color 0.3s; /* Transição suave ao passar o mouse */
+            font-size: 1em; /* Tamanho da fonte */
         }
         input[type="submit"]:hover {
-            background-color: #2c4a2a;
+            background-color: #2c4a2a; /* Cor do botão ao passar o mouse */
         }
         .login-link {
             text-align: center;
-            margin-top: 10px;
+            margin-top: 15px;
+            color: #315232; /* Cor do texto do link */
+        }
+        .login-link a {
+            text-decoration: none; /* Remove sublinhado */
+            color: #315232; /* Cor do link */
+        }
+        .login-link a:hover {
+            text-decoration: underline; /* Sublinhado ao passar o mouse */
         }
     </style>
 </head>
@@ -63,10 +82,10 @@
             
             <label for="email">Email</label>
             <input type="email" id="email" name="email" 
-                   placeholder="Email" 
+                   placeholder="Digite seu email" 
                    required 
-                   pattern="[a-zA-Z0-9._%+-]+@gmail\.com" 
-                   title="Por favor, insira um e-mail do tipo example@gmail.com">
+                   pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" 
+                   title="Por favor, insira um e-mail válido. Exemplo: nome@provedor.com">
             
             <label for="password">Senha</label>
             <input type="password" id="password" name="password" placeholder="Senha" required>
@@ -115,3 +134,4 @@
     </script>
 </body>
 </html>
+
