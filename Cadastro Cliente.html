@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             height: 100vh;
-            background-image: url('file:///C:/Users/Lucas Endo/Desktop/Pim Kawe/fazenda-com-colheitas-verdes-exuberantes-e-lindo-ceu-azul-claro_508977-518.avif');
+            background-image: url("F:/Pim Kewe/fazenda-com-colheitas-verdes-exuberantes-e-lindo-ceu-azul-claro_508977-518.avif");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -19,14 +19,20 @@
             align-items: center;
         }
         .register-container {
-            background-color: rgba(210, 180, 140, 0.9);
+            background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com transparência */
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 400px; /* Limita a largura máxima */
         }
         h2 {
             text-align: center;
+            color: #315232; /* título */
+        }
+        label {
+            font-weight: bold;
+            color: #333; /* texto dos rótulos */
         }
         input[type="text"],
         input[type="email"],
@@ -36,23 +42,34 @@
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #d6d3d3;
-            border-radius: 4px;
+            border-radius: 5px;
+            font-size: 1em; /* fonte */
         }
         input[type="submit"] {
             background-color: #315232;
             color: white;
             padding: 10px;
             border: none;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
             width: 100%;
+            transition: background-color 0.3s; /* Transição suave ao passar o mouse */
+            font-size: 1em; /*  fonte */
         }
         input[type="submit"]:hover {
-            background-color: #2c4a2a;
+            background-color: #2c4a2a; /* Cor do botão ao passar o mouse */
         }
         .login-link {
             text-align: center;
             margin-top: 10px;
+            color: #315232; /* Cor do texto do link */
+        }
+        .login-link a {
+            text-decoration: none; /* Rmv sublinhado */
+            color: #315232; /* Cor do link */
+        }
+        .login-link a:hover {
+            text-decoration: underline; /* Sublinhado ao passar o mouse */
         }
     </style>
 </head>
@@ -65,11 +82,11 @@
             
             <label for="email">Email</label>
             <input type="email" id="email" name="email" 
-                   placeholder="Email" 
+                   placeholder="Digite seu email" 
                    required 
-                   pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
-                   title="Por favor, insira um e-mail válido">
-
+                   pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" 
+                   title="Por favor, insira um e-mail válido. Exemplo: nome@provedor.com">
+            
             <label for="cpf">CPF</label>
             <input type="text" id="cpf" name="cpf" placeholder="CPF" required title="Formato: 000.000.000-00" oninput="formatCPF(this)" maxlength="14">
 
@@ -106,6 +123,7 @@
             if (value.length > 7) value = value.replace(/(\d{5})(\d)/, '$1-$2');
             input.value = value;
         }
+
         function validateRegisterForm() {
             const emailInput = document.getElementById('email');
             const passwordInput = document.getElementById('password');
@@ -118,6 +136,7 @@
                 emailInput.focus();
                 return false;
             }
+
             // Validar Senhas
             if (passwordInput.value !== confirmPasswordInput.value) {
                 alert('As senhas não coincidem. Por favor, verifique.');
