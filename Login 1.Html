@@ -20,66 +20,83 @@
         }
         .login-container {
             background-color: rgba(210, 180, 140, 0.9);
-            padding: 40px; /* Aumentar o padding para mais conforto */
-            border-radius: 10px; /* Bordas mais arredondadas */
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada */
-            max-width: 400px; /* Limitar a largura do contêiner */
-            width: 100%; /* Para responsividade */
-            text-align: center; /* Centralizar texto no contêiner */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
         }
         h2 {
-            margin-bottom: 20px; /* Espaçamento abaixo do título */
-            color: #4d684e; /* Cor do título */
+            margin-bottom: 20px;
+            color: #4d684e;
         }
         input[type="email"],
         input[type="password"] {
-            width: 95%;
-            padding: 12px; /* Aumentar o padding para conforto */
+            width: 93%;
+            padding: 12px;
             margin: 10px 0;
             border: 1px solid #d6d3d3;
             border-radius: 4px;
-            font-size: 1em; /* Tamanho da fonte */
+            font-size: 1em;
         }
         input[type="submit"] {
             background-color: #315232;
             color: white;
-            padding: 12px; /* Aumentar o padding para conforto */
+            padding: 12px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             width: 100%;
-            font-size: 1em; /* Tamanho da fonte */
-            transition: background-color 0.3s; /* Transição suave */
+            font-size: 1em;
+            transition: background-color 0.3s;
         }
         input[type="submit"]:hover {
-            background-color: #4d684e; /* Cor ao passar o mouse */
+            background-color: #4d684e;
         }
         .register-link {
             text-align: center;
             margin-top: 15px;
-            font-size: 0.9em; /* Tamanho da fonte reduzido */
+            font-size: 0.9em;
         }
         .register-link a {
-            color: #315232; /* Cor do link */
-            text-decoration: none; /* Sem sublinhado */
+            color: #315232;
+            text-decoration: none;
         }
         .register-link a:hover {
-            text-decoration: underline; /* Sublinhado ao passar o mouse */
+            text-decoration: underline;
+        }
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .login-container {
+                padding: 30px;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 20px;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
         }
     </style>
 </head>
 <body>
     <div class="login-container">
         <h2>Login - Funcionários</h2>
-        <form action="dashboard.html" method="post" onsubmit="return validateForm()">
+        <form action="login.php" method="post" onsubmit="return validateForm()">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" 
-                   placeholder="Digite seu email" 
-                   required 
+            <input type="email" id="email" name="email" placeholder="Digite seu email" required 
                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" 
                    title="Por favor, insira um e-mail válido. Exemplo: nome@provedor.com">
+            
             <label for="password">Senha</label>
             <input type="password" id="password" name="password" placeholder="Senha" required>
+
             <input type="submit" value="Entrar">
         </form>
         <div class="register-link">
@@ -103,4 +120,3 @@
     </script>
 </body>
 </html>
-
