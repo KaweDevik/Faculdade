@@ -2,10 +2,10 @@
 session_start();
 
 // Dados de conexão com o banco de dados
-$servername = "localhost";
-$username = "root";  // Usuário do MySQL
-$password = "";      // Senha do MySQL
-$dbname = "empresa_agricola"; // Nome do banco de dados
+$servername = "localhost";  // Geralmente 'localhost' para phpMyAdmin
+$username = "root";         // Nome de usuário do MySQL (padrão é 'root' em ambientes locais)
+$password = "";             // Senha do MySQL (deixe em branco se for local)
+$dbname = "empresa_agricola"; // Nome do banco de dados no phpMyAdmin
 
 // Criação da conexão
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -28,12 +28,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         // Se o cliente existe, pega os dados
         $row = $result->fetch_assoc();
-        // Verifica a senha
+        
+        // Verifica a senha (utilizando password_verify para comparar a senha criptografada)
         if (password_verify($senha, $row['senha'])) {
             // Login bem-sucedido, iniciando a sessão
-            $_SESSION['cliente_id'] = $row['id'];
-            $_SESSION['cliente_nome'] = $row['nome'];
-            header("Location: loja.html");
+            $_SESSION['cliente_id'] = $row['id'];          // Armazena o ID do cliente na sessão
+            $_SESSION['cliente_nome'] = $row['nome'];      // Armazena o nome do cliente na sessão
+            header("Location: loja.html");                  // Redireciona para a página loja.html
             exit();
         } else {
             // Senha incorreta
