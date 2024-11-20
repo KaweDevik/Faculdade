@@ -96,7 +96,7 @@
 <body>
     <div class="register-container">
         <h2>Cadastro - Funcionários</h2>
-        <form action="register.php" method="post" onsubmit="return validateRegisterForm()">
+        <form action="register2.php" method="post" onsubmit="return validateRegisterForm()">
             <label for="name">Nome</label>
             <input type="text" id="name" name="name" placeholder="Nome completo" required>
             
@@ -143,13 +143,13 @@
 
             // Exibe a msg de sucesso e te leva a página de login
             alert('Cadastro realizado com sucesso!');
-            window.location.href = 'Login 1.html';
+            window.location.href = 'Login.html';
             return false; // Impede o envio do formulário tradicional
         }
 
         // Redirecionamento ao login
         function redirectToLogin() {
-            window.location.href = 'Login 1.html';
+            window.location.href = 'Login.html';
         }
     </script>
 </body>
