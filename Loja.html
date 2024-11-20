@@ -6,272 +6,281 @@
     <title>Loja - Produtos Agrícolas</title>
     <style>
         body { 
-            font-family: Arial, sans-serif; /* Usamos uma fonte simples, bem de boa */
-            text-align: center; /* Centraliza tudo, pra ficar bonitinho */
+            font-family: Arial, sans-serif;
+            text-align: center; 
             color: #333;
             background-image: url("F:/Pim Kewe/pexels-photo-440731.jpeg");
-            background-size: cover; /* Faz o fundo ocupar tudo */
+            background-size: cover;
             background-position: center; 
             background-repeat: no-repeat; 
-            margin: 0; /* Tira as margens pra não ficar bugado */
-            min-height: 100vh; /* Garante que o fundo vai sempre ocupar a tela toda */
+            margin: 0; 
+            min-height: 100vh; 
         }
 
         h1 { 
-            background-color: rgba(50, 84, 51, 0.9); /* Um verde bem legal pro título */
-            color: #fff; /* Texto branco, pra destacar */
+            background-color: rgba(50, 84, 51, 0.9);
+            color: #fff;
             padding: 20px; 
-            border-radius: 5px; /* Bordinhas arredondadas, que é mais estiloso */
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombrinha pra dar um efeito 3D */
-            margin-bottom: 20px; /* Espaço embaixo do título */
-            font-size: 2em; /* Tamanho do texto, pra chamar atenção */
+            border-radius: 5px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px; 
+            font-size: 2em;
         }
 
         .products-section {
-            background-color: rgba(210, 180, 140, 0.9); /* Um fundo suave pra seção de produtos */
+            background-color: rgba(210, 180, 140, 0.9);
             padding: 40px 20px;
-            border-radius: 10px; /* Bordinhas arredondadas na seção */
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Sombrinha pra destacar a seção */
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
             display: flex; 
             flex-direction: column; 
             align-items: center; 
             max-width: 1200px; 
-            margin: auto; /* Centraliza a seção na tela */
+            margin: auto;
         }
 
         .product {
-            margin: 20px; /* Espaço entre os produtos */
+            margin: 20px; 
             width: 250px; 
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9); /* Fundo branco pra cada produto */
-            border: 1px solid #ddd; /* Bordinhas pra separar */
-            border-radius: 10px; /* Bordinhas arredondadas de novo */
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Sombrinha nos produtos */
-            transition: transform 0.3s, box-shadow 0.3s; /* Transição suave pros efeitos */
+            background-color: rgba(255, 255, 255, 0.9); 
+            border: 1px solid #ddd; 
+            border-radius: 10px; 
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); 
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .product:hover {
-            transform: scale(1.05); /* Aumenta um pouco o tamanho ao passar o mouse, pra dar destaque */
-            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Sombrinha mais forte quando passa o mouse */
-            background-color: rgba(255, 255, 255, 0.95); /* Leve alteração na cor de fundo ao passar o mouse */
+            transform: scale(1.05); 
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); 
+            background-color: rgba(255, 255, 255, 0.95);
         }
 
         .product img {
-            width: 100%; /* A imagem ocupa toda a largura do produto */
-            border-radius: 10px; /* Bordinhas arredondadas nas imagens */
-            max-height: 150px; /* Altura máxima da imagem */
-            object-fit: cover; /* Corta a imagem pra se encaixar direitinho */
-            margin-bottom: 10px; /* Espaço embaixo da imagem */
+            width: 100%;
+            border-radius: 10px; 
+            max-height: 150px;
+            object-fit: cover;
+            margin-bottom: 10px; 
         }
 
         .product h3 {
-            margin-top: 10px; /* Espaço em cima do título do produto */
-            color: #4d684e; /* Cor do título do produto */
-            font-size: 1.5em; /* Tamanho do texto do título */
+            margin-top: 10px; 
+            color: #4d684e;
+            font-size: 1.5em;
         }
 
         label {
-            font-weight: bold; /* Deixa as labels em negrito, pra dar destaque */
-            display: block; /* Cada label ocupa uma linha */
-            margin: 10px 0 5px; /* Espaço em cima e embaixo da label */
+            font-weight: bold;
+            display: block; 
+            margin: 10px 0 5px; 
         }
 
         input, select, button {
-            padding: 10px; /* Um pouco de espaço dentro dos campos */
-            margin: 5px auto; /* Margens automáticas pra centralizar */
-            width: 90%; /* Largura dos inputs e botões */
-            max-width: 350px; /* Largura máxima pra não ficar enorme */
-            border-radius: 5px; /* Bordinhas arredondadas */
-            border: 1px solid #ddd; /* Bordinhas nos campos */
-            transition: border-color 0.3s; /* Transição suave na cor da borda */
+            padding: 10px; 
+            margin: 5px auto; 
+            width: 90%; 
+            max-width: 350px;
+            border-radius: 5px; 
+            border: 1px solid #ddd; 
+            transition: border-color 0.3s;
         }
 
         input:focus, select:focus {
-            border-color: #4d684e; /* Cor da borda muda ao focar */
-            outline: none; /* Tira a borda padrão do navegador */
+            border-color: #4d684e; 
+            outline: none;
         }
 
         button {
-            background-color: #4d684e; /* Cor de fundo dos botões */
-            color: #fff; /* Texto branco nos botões */
-            border: none; /* Tira a borda padrão */
-            cursor: pointer; /* Muda o cursor pra indicar que é clicável */
-            transition: background-color 0.3s, transform 0.2s; /* Transição suave nas cores e no tamanho */
+            background-color: #4d684e;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
         button:hover {
-            background-color: #3e572f; /* Cor do botão muda ao passar o mouse */
-            transform: translateY(-2px); /* Levanta um pouquinho o botão, fica massa  */
+            background-color: #3e572f; 
+            transform: translateY(-2px); 
         }
 
         #totalCompra {
-            font-size: 1.5em; /* Tamanho do texto do total da compra */
-            font-weight: bold; /* Deixa o texto em negrito */
-            margin-top: 20px; /* Espaço em cima do total */
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 20px;
         }
 
         #cartList {
-            list-style: none; /* Tira as bolinhas da lista */
-            padding: 0; /* Remove o padding(Define uma a distância entre o conteúdo de um elemento e suas bordas) padrão */
-            margin: 20px 0; /* Espaço em cima e embaixo da lista */
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
         }
 
         #cartList li {
-            border-bottom: 1px solid #ddd; /* Linha de separação entre itens do carrinho */
-            padding: 10px 0; /* Espaço em cima e embaixo dos itens */
+            border-bottom: 1px solid #ddd; 
+            padding: 10px 0; 
         }
 
         .message {
-            position: fixed; /* Fica fixo no canto da tela */
-            top: 20px; /* Distância do topo */
-            right: 20px; /* Distância da direita */
-            background-color: #4d684e; /* Cor de fundo da mensagem */
-            color: #fff; /* Texto branco */
-            padding: 10px; /* Espaço dentro da mensagem */
-            border-radius: 5px; /* Bordinhas arredondadas na mensagem */
-            transition: opacity 0.5s; /* Transição suave na opacidade */
-            opacity: 1; /* Começa totalmente visível */
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #4d684e;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            transition: opacity 0.5s;
+            opacity: 1;
         }
     </style>
     <script>
         const productPrices = {
-            "Maçã": { unidade: 3, peso: 8 }, /* Preço da maçã */
-            "Banana": { unidade: 2, peso: 5 }, /* Preço da banana */
-            "Laranja": { unidade: 4, peso: 9 }, /* Preço da laranja */
-            "Cenoura": { unidade: 3, peso: 7 }, /* Preço da cenoura */
-            "Brócolis": { unidade: 5, peso: 12 }, /* Preço do brócolis */
-            "Batata": { unidade: 2, peso: 4 }, /* Preço da batata */
-            "Arroz": { unidade: 10, peso: 20 }, /* Preço do arroz */
-            "Feijão": { unidade: 6, peso: 15 }, /* Preço do feijão */
-            "Lentilha": { unidade: 5, peso: 14 } /* Preço da lentilha */
+            "Maçã": { unidade: 3, peso: 8 },
+            "Banana": { unidade: 2, peso: 5 },
+            "Laranja": { unidade: 4, peso: 9 },
+            "Cenoura": { unidade: 3, peso: 7 },
+            "Brócolis": { unidade: 5, peso: 12 },
+            "Batata": { unidade: 2, peso: 4 },
+            "Arroz": { unidade: 10, peso: 20 },
+            "Feijão": { unidade: 6, peso: 15 },
+            "Lentilha": { unidade: 5, peso: 14 }
         };
 
         window.onload = function() {
-            const totalCompra = parseFloat(localStorage.getItem('totalCompra')) || 0; /* Pega o total da compra do localStorage */
-            document.getElementById("totalCompra").innerText = `Total da compra: R$${totalCompra.toFixed(2)}`; /* Mostra o total na tela */
+            const totalCompra = parseFloat(localStorage.getItem('totalCompra')) || 0;
+            document.getElementById("totalCompra").innerText = `Total da compra: R$${totalCompra.toFixed(2)}`;
         };
 
         function hasCadastro() {
-            return localStorage.getItem('cadastrado') === 'true'; /* Checa se o usuário tá cadastrado */
+            const email = prompt("Digite seu email:");
+            const cpf = prompt("Digite seu CPF:");
+
+            if (!email || !cpf) {
+                alert("Email e CPF são necessários para verificar seu cadastro.");
+                return false;
+            }
+
+            fetch(`verificar_cliente.php?email=${encodeURIComponent(email)}&cpf=${encodeURIComponent(cpf)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === "success") {
+                        alert(data.message);
+                        applyDiscount();
+                    } else {
+                        alert(data.message);
+                        const cadastrar = confirm("Você não está cadastrado! Deseja se cadastrar?");
+                        if (cadastrar) {
+                            window.location.href = "Cadastro Cliente.html";
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error("Erro na requisição: ", error);
+                    alert("Ocorreu um erro ao verificar seu cadastro.");
+                });
+        }
+
+        function applyDiscount() {
+            let totalCompra = parseFloat(localStorage.getItem('totalCompra')) || 0;
+            totalCompra *= 0.9; // Aplica 10% de desconto
+            localStorage.setItem('totalCompra', totalCompra);
+            document.getElementById("totalCompra").innerText = `Total da compra: R$${totalCompra.toFixed(2)}`;
         }
 
         function addToCart() {
-            const product = document.getElementById("productSelect").value; /* Pega o produto selecionado */
-            const measure = document.getElementById("measureSelect").value; /* Pega a medida escolhida */
-            const quantity = parseInt(document.getElementById("quantity").value, 10); /* Pega a quantidade e transforma em número */
-            
-            if (!product || quantity <= 0 || quantity > 100) { /* Valida se a quantidade tá ok */
-                alert("Escolha um produto e coloque uma quantidade válida!"); /* Se não, avisa o usuário */
+            const product = document.getElementById("productSelect").value;
+            const measure = document.getElementById("measureSelect").value;
+            const quantity = parseInt(document.getElementById("quantity").value, 10);
+
+            if (!product || quantity <= 0 || quantity > 100) {
+                alert("Escolha um produto e coloque uma quantidade válida!");
                 return;
             }
 
-            let pricePerUnit = productPrices[product][measure]; /* preço do produto de acordo com a medida */
+            let pricePerUnit = productPrices[product][measure];
 
-            if (hasCadastro()) {
-                pricePerUnit *= 0.9; /* 10% de desconto pra quem tá cadastrado, porque a gente gosta de fidelizar! */
-            } else {
-                alert("Você não está cadastrado! Considere se cadastrar para obter um desconto.");
-                const cadastrar = confirm("Deseja se cadastrar?"); /* Pergunta se quer se cadastrar */
-                if (cadastrar) {
-                    window.location.href = "Cadastro Cliente.html"; /* Se sim, leva pra página de cadastro */
-                    return;
-                }
-            }
+            hasCadastro();
 
-            const subtotal = pricePerUnit * quantity; /* Calcula o subtotal do produto */
+            const subtotal = pricePerUnit * quantity;
 
-            let totalCompra = parseFloat(localStorage.getItem('totalCompra')) || 0; /* Pega total atual da compra */
-            totalCompra += subtotal; /* Atualiza o total */
-            localStorage.setItem('totalCompra', totalCompra); /* Salva o novo total */
-            document.getElementById("totalCompra").innerText = `Total da compra: R$${totalCompra.toFixed(2)}`; /* Atualiza na tela */
-            prependProductToList(product, measure, quantity, subtotal); /* Adiciona o item na lista de compras */
-            showMessage(`Você adicionou ${quantity} ${measure}(s) de ${product} ao carrinho! Subtotal: R$${subtotal.toFixed(2)}`); /* Mostra mensagem de sucesso */
+            let totalCompra = parseFloat(localStorage.getItem('totalCompra')) || 0;
+            totalCompra += subtotal;
+            localStorage.setItem('totalCompra', totalCompra);
+            document.getElementById("totalCompra").innerText = `Total da compra: R$${totalCompra.toFixed(2)}`;
+            prependProductToList(product, measure, quantity, subtotal);
+            showMessage(`Você adicionou ${quantity} ${measure}(s) de ${product} ao carrinho! Subtotal: R$${subtotal.toFixed(2)}`);
         }
 
         function prependProductToList(product, measure, quantity, subtotal) {
-            const list = document.getElementById('cartList'); /* Seleciona a lista do carrinho */
-            const item = document.createElement('li'); /* Cria um novo item de lista */
-            item.textContent = `${quantity} ${measure}(s) de ${product} - R$${subtotal.toFixed(2)}`; /* Coloca os detalhes do produto */
-            list.prepend(item); /* Adiciona, início da lista */
+            const list = document.getElementById('cartList');
+            const item = document.createElement('li');
+            item.textContent = `${quantity} ${measure}(s) de ${product} - R$${subtotal.toFixed(2)}`;
+            list.prepend(item);
         }
 
         function showMessage(msg) {
-            const messageDiv = document.createElement('div'); /* Cria uma div pra mensagem */
-            messageDiv.className = 'message'; /* Adiciona a classe pra estilizar */
-            messageDiv.textContent = msg; /* Coloca a mensagem dentro da div */
-            document.body.appendChild(messageDiv); /* Adiciona a mensagem no corpo da página */
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message';
+            messageDiv.textContent = msg;
+            document.body.appendChild(messageDiv);
             setTimeout(() => {
-                messageDiv.style.opacity = 0; /* Faz a mensagem desaparecer depois de 3 sec */
+                messageDiv.style.opacity = 0;
                 setTimeout(() => {
-                    document.body.removeChild(messageDiv); /* Remove a mensagem do DOM */
-                }, 500); /* Aguarda a transição */
-            }, 3000); /* Tempo que a mensagem vai aparecer */
+                    document.body.removeChild(messageDiv);
+                }, 500);
+            }, 3000);
         }
 
         function finalizarCompra() {
-            const totalCompra = parseFloat(localStorage.getItem('totalCompra')) || 0; /* Pega o total da compra de novo */
+            const totalCompra = parseFloat(localStorage.getItem('totalCompra')) || 0;
 
             if (totalCompra === 0) {
-                alert("Seu carrinho tá vazio. Adicione produtos antes de finalizar a compra."); /* Se o carrinho tá vazio, avisa */
+                alert("Seu carrinho tá vazio. Adicione produtos antes de finalizar a compra.");
                 return;
             }
 
-            const confirmacao = confirm(`O valor total é R$${totalCompra.toFixed(2)}. Deseja confirmar o pagamento?`); /* Pergunta se o usuário confirma a compra */
+            const confirmacao = confirm(`O valor total é R$${totalCompra.toFixed(2)}. Deseja confirmar o pagamento?`);
             if (confirmacao) {
-                alert("Pagamento confirmado! Obrigado pela compra."); /* Agradece se confirmar */
-                localStorage.removeItem('totalCompra'); /* Limpa o total da compra */
-                document.getElementById("totalCompra").innerText = "Total da compra: R$0.00"; /* Atualiza na tela */
-                document.getElementById('cartList').innerHTML = ""; /* Limpa a lista do carrinho */
-            } else {
-                alert("Compra cancelada."); /* Avisa se a compra foi cancelada */
+                alert("Pagamento confirmado! Obrigado pela compra.");
+                localStorage.removeItem('totalCompra');
+                document.getElementById("totalCompra").innerText = `Total da compra: R$0.00`;
+                document.getElementById('cartList').innerHTML = '';
             }
         }
     </script>
 </head>
 <body>
     <h1>Loja de Produtos Agrícolas</h1>
-
     <div class="products-section">
-        <div class="product">
-            <img src="F:\Pim Kewe\condimentos-temperos-produtos-naturais-sem-gluten.jpg" alt="Frutas">
-            <h3>Frutas</h3>
-            <label for="productSelect">Produto:</label>
-            <select id="productSelect">
-                <option value="Maçã">Maçã</option>
-                <option value="Banana">Banana</option>
-                <option value="Laranja">Laranja</option>
-                <option value="Cenoura">Cenoura</option>
-                <option value="Brócolis">Brócolis</option>
-                <option value="Batata">Batata</option>
-                <option value="Arroz">Arroz</option>
-                <option value="Feijão">Feijão</option>
-                <option value="Lentilha">Lentilha</option>
-            </select>
+        <h2>Produtos Disponíveis</h2>
+        <select id="productSelect">
+            <option value="">Selecione um produto</option>
+            <option value="Maçã">Maçã</option>
+            <option value="Banana">Banana</option>
+            <option value="Laranja">Laranja</option>
+            <option value="Cenoura">Cenoura</option>
+            <option value="Brócolis">Brócolis</option>
+            <option value="Batata">Batata</option>
+            <option value="Arroz">Arroz</option>
+            <option value="Feijão">Feijão</option>
+            <option value="Lentilha">Lentilha</option>
+        </select>
+        <select id="measureSelect">
+            <option value="unidade">Unidade</option>
+            <option value="peso">Peso (kg)</option>
+        </select>
+        <input type="number" id="quantity" placeholder="Quantidade" min="1">
+        <button onclick="addToCart()">Adicionar ao Carrinho</button>
 
-            <label for="measureSelect">Medida:</label>
-            <select id="measureSelect">
-                <option value="unidade">Unidade (Un)</option>
-                <option value="peso">Peso (Kg)</option>
-            </select>
-
-            <label for="quantity">Quantidade (máx. 100):</label>
-            <input type="number" id="quantity" min="1" max="100" value="1">
-
-            <label for="paymentSelect">Forma de Pagamento:</label>
-            <select id="paymentSelect">
-                <option value="Cartao Credito">Cartão de Crédito</option>
-                <option value="Cartao Debito">Cartão de Débito</option>
-                <option value="pix">Pix</option>
-            </select>
-
-            <button onclick="addToCart()">Adicionar ao Carrinho</button>
-            <button onclick="finalizarCompra()">Finalizar Compra</button>
-
-            <p id="totalCompra">Total da compra: R$0.00</p>
-            <h2>Itens no Carrinho</h2>
+        <div id="cart">
+            <h3>Itens no Carrinho</h3>
             <ul id="cartList"></ul>
         </div>
+
+        <div id="totalCompra">Total da compra: R$0.00</div>
+        <button onclick="finalizarCompra()">Finalizar Compra</button>
     </div>
 </body>
 </html>
+
 
