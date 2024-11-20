@@ -37,11 +37,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } else {
             // Senha incorreta
-            echo "<script>alert('Senha incorreta. Tente novamente.'); window.location.href = 'Login Cliente.html';</script>";
+            echo "<script>alert('Senha incorreta. Tente novamente.'); window.location.href = 'LoginCliente.html';</script>";
         }
     } else {
         // E-mail ou CPF não encontrados
-        echo "<script>alert('E-mail ou CPF não encontrados. Tente novamente.'); window.location.href = 'Login Cliente.html';</script>";
+        echo "<script>alert('E-mail ou CPF não encontrados. Tente novamente.'); window.location.href = 'LoginCliente.html';</script>";
     }
 }
 
