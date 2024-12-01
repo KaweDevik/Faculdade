@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja - Produtos Agrícolas</title>
+
+    <!-- Adicionando o SDK do Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"></script>
+
     <style>
+        /* Estilos base do corpo e fundo */
         body { 
             font-family: Arial, sans-serif;
             text-align: center; 
@@ -15,6 +21,10 @@
             background-repeat: no-repeat; 
             margin: 0; 
             min-height: 100vh; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
 
         h1 { 
@@ -25,6 +35,7 @@
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
             margin-bottom: 20px; 
             font-size: 2em;
+            width: 100%;
         }
 
         .products-section {
@@ -32,11 +43,11 @@
             padding: 40px 20px;
             border-radius: 10px;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            max-width: 1200px; 
-            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1200px;
+            width: 100%;
         }
 
         .product {
@@ -48,12 +59,7 @@
             border-radius: 10px; 
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); 
             transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .product:hover {
-            transform: scale(1.05); 
-            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); 
-            background-color: rgba(255, 255, 255, 0.95);
+            position: relative;
         }
 
         .product img {
@@ -62,12 +68,6 @@
             max-height: 150px;
             object-fit: cover;
             margin-bottom: 10px; 
-        }
-
-        .product h3 {
-            margin-top: 10px; 
-            color: #4d684e;
-            font-size: 1.5em;
         }
 
         label {
@@ -84,11 +84,6 @@
             border-radius: 5px; 
             border: 1px solid #ddd; 
             transition: border-color 0.3s;
-        }
-
-        input:focus, select:focus {
-            border-color: #4d684e; 
-            outline: none;
         }
 
         button {
@@ -132,153 +127,166 @@
             transition: opacity 0.5s;
             opacity: 1;
         }
+
+        /* Media Queries para Responsividade */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5em;
+                padding: 15px;
+            }
+
+            .products-section {
+                padding: 30px 15px;
+            }
+
+            .product {
+                width: 100%;
+                margin: 10px 0;
+                padding: 15px;
+            }
+
+            input, select, button {
+                width: 80%;
+                max-width: 300px;
+            }
+
+            #totalCompra {
+                font-size: 1.2em;
+            }
+
+            #cartList {
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.2em;
+            }
+
+            .product {
+                width: 100%;
+                padding: 10px;
+            }
+
+            input, select, button {
+                width: 90%;
+                max-width: 250px;
+            }
+
+            #totalCompra {
+                font-size: 1em;
+            }
+        }
     </style>
-    <script>
-        const productPrices = {
-            "Maçã": { unidade: 3, peso: 8 },
-            "Banana": { unidade: 2, peso: 5 },
-            "Laranja": { unidade: 4, peso: 9 },
-            "Cenoura": { unidade: 3, peso: 7 },
-            "Brócolis": { unidade: 5, peso: 12 },
-            "Batata": { unidade: 2, peso: 4 },
-            "Arroz": { unidade: 10, peso: 20 },
-            "Feijão": { unidade: 6, peso: 15 },
-            "Lentilha": { unidade: 5, peso: 14 }
-        };
-
-        window.onload = function() {
-            const totalCompra = parseFloat(localStorage.getItem('totalCompra')) || 0;
-            document.getElementById("totalCompra").innerText = `Total da compra: R$${totalCompra.toFixed(2)}`;
-        };
-
-        function hasCadastro() {
-            const email = prompt("Digite seu email:");
-            const cpf = prompt("Digite seu CPF:");
-
-            if (!email || !cpf) {
-                alert("Email e CPF são necessários para verificar seu cadastro.");
-                return false;
-            }
-
-            fetch(`verificar_cliente.php?email=${encodeURIComponent(email)}&cpf=${encodeURIComponent(cpf)}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.status === "success") {
-                        alert(data.message);
-                        applyDiscount();
-                    } else {
-                        alert(data.message);
-                        const cadastrar = confirm("Você não está cadastrado! Deseja se cadastrar?");
-                        if (cadastrar) {
-                            window.location.href = "Cadastro Cliente.html";
-                        }
-                    }
-                })
-                .catch(error => {
-                    console.error("Erro na requisição: ", error);
-                    alert("Ocorreu um erro ao verificar seu cadastro.");
-                });
-        }
-
-        function applyDiscount() {
-            let totalCompra = parseFloat(localStorage.getItem('totalCompra')) || 0;
-            totalCompra *= 0.9; // Aplica 10% de desconto
-            localStorage.setItem('totalCompra', totalCompra);
-            document.getElementById("totalCompra").innerText = `Total da compra: R$${totalCompra.toFixed(2)}`;
-        }
-
-        function addToCart() {
-            const product = document.getElementById("productSelect").value;
-            const measure = document.getElementById("measureSelect").value;
-            const quantity = parseInt(document.getElementById("quantity").value, 10);
-
-            if (!product || quantity <= 0 || quantity > 100) {
-                alert("Escolha um produto e coloque uma quantidade válida!");
-                return;
-            }
-
-            let pricePerUnit = productPrices[product][measure];
-
-            hasCadastro();
-
-            const subtotal = pricePerUnit * quantity;
-
-            let totalCompra = parseFloat(localStorage.getItem('totalCompra')) || 0;
-            totalCompra += subtotal;
-            localStorage.setItem('totalCompra', totalCompra);
-            document.getElementById("totalCompra").innerText = `Total da compra: R$${totalCompra.toFixed(2)}`;
-            prependProductToList(product, measure, quantity, subtotal);
-            showMessage(`Você adicionou ${quantity} ${measure}(s) de ${product} ao carrinho! Subtotal: R$${subtotal.toFixed(2)}`);
-        }
-
-        function prependProductToList(product, measure, quantity, subtotal) {
-            const list = document.getElementById('cartList');
-            const item = document.createElement('li');
-            item.textContent = `${quantity} ${measure}(s) de ${product} - R$${subtotal.toFixed(2)}`;
-            list.prepend(item);
-        }
-
-        function showMessage(msg) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = 'message';
-            messageDiv.textContent = msg;
-            document.body.appendChild(messageDiv);
-            setTimeout(() => {
-                messageDiv.style.opacity = 0;
-                setTimeout(() => {
-                    document.body.removeChild(messageDiv);
-                }, 500);
-            }, 3000);
-        }
-
-        function finalizarCompra() {
-            const totalCompra = parseFloat(localStorage.getItem('totalCompra')) || 0;
-
-            if (totalCompra === 0) {
-                alert("Seu carrinho tá vazio. Adicione produtos antes de finalizar a compra.");
-                return;
-            }
-
-            const confirmacao = confirm(`O valor total é R$${totalCompra.toFixed(2)}. Deseja confirmar o pagamento?`);
-            if (confirmacao) {
-                alert("Pagamento confirmado! Obrigado pela compra.");
-                localStorage.removeItem('totalCompra');
-                document.getElementById("totalCompra").innerText = `Total da compra: R$0.00`;
-                document.getElementById('cartList').innerHTML = '';
-            }
-        }
-    </script>
 </head>
+
 <body>
     <h1>Loja de Produtos Agrícolas</h1>
+    
     <div class="products-section">
-        <h2>Produtos Disponíveis</h2>
-        <select id="productSelect">
-            <option value="">Selecione um produto</option>
-            <option value="Maçã">Maçã</option>
-            <option value="Banana">Banana</option>
-            <option value="Laranja">Laranja</option>
-            <option value="Cenoura">Cenoura</option>
-            <option value="Brócolis">Brócolis</option>
-            <option value="Batata">Batata</option>
-            <option value="Arroz">Arroz</option>
-            <option value="Feijão">Feijão</option>
-            <option value="Lentilha">Lentilha</option>
-        </select>
-        <select id="measureSelect">
-            <option value="unidade">Unidade</option>
-            <option value="peso">Peso (kg)</option>
-        </select>
-        <input type="number" id="quantity" placeholder="Quantidade" min="1">
-        <button onclick="addToCart()">Adicionar ao Carrinho</button>
+        <h2>Adicionar Produto à Loja</h2>
+        <label for="productName">Nome do Produto:</label>
+        <input type="text" id="productName" placeholder="Nome do Produto" required>
 
-        <div id="cart">
-            <h3>Itens no Carrinho</h3>
-            <ul id="cartList"></ul>
-        </div>
+        <label for="productPrice">Preço:</label>
+        <input type="number" id="productPrice" placeholder="Preço" required>
 
-        <div id="totalCompra">Total da compra: R$0.00</div>
-        <button onclick="finalizarCompra()">Finalizar Compra</button>
+        <label for="productImage">URL da Imagem:</label>
+        <input type="text" id="productImage" placeholder="URL da Imagem" required>
+
+        <label for="productDescription">Descrição:</label>
+        <input type="text" id="productDescription" placeholder="Descrição do Produto" required>
+
+        <button id="addProductButton">Adicionar Produto</button>
+
+        <h2>Produtos Disponíveis na Loja</h2>
+        <div id="productList"></div>
     </div>
+
+    <script type="module">
+        // Configuração do Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCmqk-69-WRuSbS1XiiFoiDpjpkUr5gEWQ",
+            authDomain: "controle-de-usuarios-34d2b.firebaseapp.com",
+            projectId: "controle-de-usuarios-34d2b",
+            storageBucket: "controle-de-usuarios-34d2b.firebasestorage.app",
+            messagingSenderId: "294424085862",
+            appId: "1:294424085862:web:bb827f1011bea18bfa74a7"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Função para carregar os produtos da loja
+        async function loadProducts() {
+            const productList = document.getElementById("productList");
+            productList.innerHTML = ""; // Limpa a lista de produtos
+
+            const querySnapshot = await getDocs(collection(db, "produtos"));
+            querySnapshot.forEach((doc) => {
+                const product = doc.data();
+                const productDiv = document.createElement("div");
+                productDiv.classList.add("product");
+
+                productDiv.innerHTML = `
+                    <img src="${product.imagem}" alt="${product.nome}">
+                    <h3>${product.nome}</h3>
+                    <p>Preço: R$${product.preco}</p>
+                    <p>${product.descricao}</p>
+                    <button class="deleteProductButton" data-id="${doc.id}">Remover Produto</button>
+                `;
+
+                productList.appendChild(productDiv);
+            });
+
+            // Attach event listeners to delete buttons
+            const deleteButtons = document.querySelectorAll('.deleteProductButton');
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-id');
+                    deleteProduct(productId);
+                });
+            });
+        }
+
+        // Função para adicionar produto à loja
+        async function addProduct() {
+            const name = document.getElementById("productName").value;
+            const price = document.getElementById("productPrice").value;
+            const image = document.getElementById("productImage").value;
+            const description = document.getElementById("productDescription").value;
+
+            if (name && price && image && description) {
+                await addDoc(collection(db, "produtos"), {
+                    nome: name,
+                    preco: price,
+                    imagem: image,
+                    descricao: description
+                });
+                alert("Produto adicionado!");
+                loadProducts();
+            } else {
+                alert("Por favor, preencha todos os campos!");
+            }
+        }
+
+        // Função para remover produto da loja
+        async function deleteProduct(productId) {
+            await deleteDoc(doc(db, "produtos", productId));
+            alert("Produto removido!");
+            loadProducts();
+        }
+
+        // Adiciona o evento para o botão de adicionar produto
+        document.getElementById("addProductButton").addEventListener("click", addProduct);
+
+        // Carregar os produtos quando a página carregar
+        window.onload = loadProducts;
+
+    </script>
 </body>
 </html>
