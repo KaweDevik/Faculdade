@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <!-- Estilos CSS -->
+    <style>
+        /* Estilos globais */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            font-size: 14px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            border-color: #45a049;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #45a049;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #3e8e41;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+            text-align: center;
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+
+        .link {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .link a {
+            color: #4e73df;
+            text-decoration: none;
+        }
+
+        .link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsividade */
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Digite seu email" required><br>
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" placeholder="Digite sua senha" required><br>
+
+            <div class="error-message" id="error-message"></div>
+
+            <button type="submit">Entrar</button>
+        </form>
+
+        <div class="link">
+            <p>Ainda não tem uma conta? <a href="Cadastro.html">Cadastre-se</a></p>
+        </div>
+    </div>
+
+    <!-- Alterado para usar 'type="module"' -->
+    <script type="module">
+        // Importações do Firebase 9.x.x
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+
+        // Configuração do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyCmqk-69-WRuSbS1XiiFoiDpjpkUr5gEWQ",
+            authDomain: "controle-de-usuarios-34d2b.firebaseapp.com",
+            projectId: "controle-de-usuarios-34d2b",
+            storageBucket: "controle-de-usuarios-34d2b.firebasestorage.app",
+            messagingSenderId: "294424085862",
+            appId: "1:294424085862:web:bb827f1011bea18bfa74a7"
+        };
+
+        // Inicializando o Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Função de login
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar envio do formulário padrão
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            signIn(email, password);
+        });
+
+        // Função para fazer login
+        function signIn(email, password) {
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    console.log('Usuário logado:', user);
+                    window.location.href = 'dashboard.html'; // Redireciona para a página após login
+                })
+                .catch((error) => {
+                    console.error('Erro no login:', error.message);
+
+                    // Exibe o erro de maneira amigável
+                    let errorMessage = 'Ocorreu um erro. Tente novamente.';
+
+                    if (error.code === 'auth/wrong-password') {
+                        errorMessage = 'Senha incorreta. Tente novamente.';
+                    } else if (error.code === 'auth/user-not-found') {
+                        errorMessage = 'Usuário não encontrado. Verifique o email.';
+                    } else if (error.code === 'auth/invalid-email') {
+                        errorMessage = 'Email inválido.';
+                    }
+
+                    document.getElementById('error-message').textContent = errorMessage;
+                });
+        }
+    </script>
+
+</body>
+</html>
