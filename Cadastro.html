@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Funcionário</title>
+
+    <!-- Carregar os Scripts do Firebase -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+
+        // Configuração do Firebase (copie a chave de configuração do Firebase Console)
+        const firebaseConfig = {
+            apiKey: "AIzaSyCmqk-69-WRuSbS1XiiFoiDpjpkUr5gEWQ",
+            authDomain: "controle-de-usuarios-34d2b.firebaseapp.com",
+            projectId: "controle-de-usuarios-34d2b",
+            storageBucket: "controle-de-usuarios-34d2b.firebasestorage.app",
+            messagingSenderId: "294424085862",
+            appId: "1:294424085862:web:bb827f1011bea18bfa74a7"
+        };
+
+        // Inicializando o Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Função de cadastro
+        document.getElementById('signup-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar envio do formulário padrão
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            signUp(email, password);
+        });
+
+        // Função para cadastrar o usuário
+        async function signUp(email, password) {
+            try {
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+                console.log('Usuário cadastrado:', user);
+
+                // Salvar o usuário no Firestore
+                await setDoc(doc(db, "users", user.uid), {
+                    email: user.email,
+                    createdAt: serverTimestamp()
+                });
+
+                console.log("Usuário salvo no Firestore!");
+                alert("Cadastro realizado com sucesso!");
+
+                // Redirecionar para a página de login após o cadastro bem-sucedido
+                setTimeout(() => {
+                    window.location.href = "login.html";  // Substitua "login.html" pelo caminho correto para sua página de login
+                }, 2000);  // Redirecionamento após 2 segundos
+            } catch (error) {
+                console.error('Erro ao cadastrar usuário:', error.message);
+                alert('Erro ao cadastrar. Tente novamente!');
+            }
+        }
+    </script>
+
+    <!-- Estilo CSS responsivo -->
+    <style>
+        /* Estilo geral */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        #signup-form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 15px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Estilo para telas pequenas */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+
+            #signup-form {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            input, button {
+                font-size: 14px;
+            }
+
+            button {
+                padding: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Cadastro de Funcionário</h2>
+        <form id="signup-form">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Digite seu email" required><br>
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" placeholder="Digite sua senha" required><br>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+</body>
+</html>
