@@ -26,6 +26,9 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
         h2 {
@@ -55,7 +58,6 @@
         }
 
         button {
-            width: 100%;
             padding: 10px;
             background-color: #45a049;
             color: white;
@@ -76,6 +78,17 @@
             text-align: center;
             margin-top: -10px;
             margin-bottom: 15px;
+        }
+
+        /* Estilos para os botões separados */
+        .button-container {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+        }
+
+        .button-container button {
+            width: 48%; /* Reduz a largura para permitir o espaço entre os botões */
         }
 
         /* Responsividade */
@@ -113,7 +126,11 @@
 
             <div class="error-message" id="error-message"></div>
 
-            <button type="submit">Enviar</button>
+            <!-- Contêiner para os botões -->
+            <div class="button-container">
+                <button type="submit">Enviar</button>
+                <button type="button" onclick="goBackToDashboard()">Voltar para o Dashboard</button>
+            </div>
         </form>
     </div>
 
@@ -140,6 +157,12 @@
             // Limpar os campos após envio (se desejado)
             document.getElementById('contact-form').reset();
         });
+
+        // Função para voltar para o dashboard
+        function goBackToDashboard() {
+            // Substitua o link abaixo pela URL do seu dashboard
+            window.location.href = "dashboard.html"; // Alterar para o caminho real do seu dashboard
+        }
     </script>
 
 </body>
