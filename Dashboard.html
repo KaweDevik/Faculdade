@@ -87,6 +87,7 @@
             transition: background-color 0.3s ease, transform 0.2s; /* Transição suave nas cores e escala */
             cursor: pointer; /* Indica que é clicável */
             min-width: 120px; /* Largura mínima pros itens do menu */
+            flex: 1 1 200px; /* Flexível com largura mínima de 200px */
         }
 
         .menu-item:hover {
@@ -113,6 +114,20 @@
             font-size: 1.2em; /* Tamanho do título do gráfico */
             color: #4d684e; /* Cor verde pros títulos */
             margin-bottom: 10px; /* Espaço embaixo do título */
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .menu {
+                flex-direction: column; /* Coloca o menu em coluna em telas menores */
+                align-items: center;
+            }
+
+            .chart-card {
+                width: 100%; /* Deixa os gráficos em largura total em telas menores */
+                max-width: none; /* Remove a largura máxima */
+                margin-bottom: 20px; /* Espaço entre os gráficos */
+            }
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -215,4 +230,3 @@
     </script>
 </body>
 </html>
-
