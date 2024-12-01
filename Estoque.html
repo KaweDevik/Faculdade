@@ -90,6 +90,64 @@
             color: #b07600; /* Amarelo para baixa */
             font-weight: bold;
         }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            /* Alterações no cabeçalho */
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            /* Ajuste no layout dos botões de navegação */
+            .nav-btn {
+                display: inline-block;
+                width: 45%;
+                margin: 5px 0;
+            }
+
+            /* Ajuste no conteúdo principal */
+            .content {
+                padding: 20px;
+            }
+
+            .stock-info {
+                padding: 15px;
+                font-size: 14px;
+            }
+
+            .stock-info h3 {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Tamanho do título no cabeçalho */
+            header h1 {
+                font-size: 1.2em;
+            }
+
+            /* Alterações no botão de logout */
+            .logout-btn {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+
+            /* Alterações nos botões de navegação */
+            .nav-btn {
+                width: 100%;
+                font-size: 14px;
+            }
+
+            /* Ajuste nas informações de estoque */
+            .stock-info {
+                padding: 10px;
+                font-size: 12px;
+            }
+
+            .stock-info h3 {
+                font-size: 1.1em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -130,6 +188,7 @@
             <p><strong>Quantidade em Estoque:</strong> 200 kg</p>
             <p><strong>Data da Última Colheita:</strong> 18/10/2025</p>
             <p><strong>Status do Estoque:</strong> <span class="status-available">Disponível</span></p>
+        </div>
     </div>
 </body>
 </html>
